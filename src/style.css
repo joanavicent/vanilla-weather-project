@@ -1,3 +1,66 @@
-h1{
-    color:blue;
+body {
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+  font-family: "Nanum Gothic", sans-serif;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+h1 {
+  color: #86aba1;
+}
+p {
+  font-size: smaller;
+  margin: 0;
+  display: block;
+}
+form {
+  text-align: center;
+}
+li{
+  list-style: none;
+}
+.card-day {
+  text-align: center;
+  font-weight: bolder;
+}
+.card-temperature {
+  text-align: center;
+}
+.card {
+  border: 2px solid #f4d8e3;
+  border-radius: 20px;
+}
+.coded {
+  text-align: center;
+  font-size: 16px;
+  color: #414143;
+}
+.clouds {
+  color: #86aba1;
+  font-size: 100px;
+  text-align: center;
+  padding-top: 10px;
+}
+.rain {
+  color: #86aba1;
+  font-size: 100px;
+  text-align: center;
+  padding-top: 10px;
+}
+.sun {
+  text-align: right;
+  font-size: 150px;
+  color: #86aba1;
+  display: block;
+  padding-right: 100px;
+}
+.csr {
+  color: #86aba1;
+  font-size: 100px;
+  text-align: center;
+  padding-top: 10px;
+}
+.date {
+  text-align: right;
+  font-size: 20px;
+  padding-top: 20px;
 }
