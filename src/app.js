@@ -18,9 +18,9 @@ function formatDate(date) {
     "Saturday"
   ];
   let day = days[dayIndex];
-  return `${day} ${hours}:${minutes}`;
+  return `${day}, ${hours}:${minutes}`;
 }
-//Homework 5
+
 function displayWeather(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(

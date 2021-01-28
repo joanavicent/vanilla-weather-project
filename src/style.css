@@ -15,8 +15,14 @@ p {
 form {
   text-align: center;
 }
+ul {
+  padding-left: unset;
+}
 li{
   list-style: none;
+}
+a {
+  text-decoration: none;
 }
 .card-day {
   text-align: center;
@@ -48,7 +54,7 @@ li{
 }
 .sun {
   text-align: right;
-  font-size: 150px;
+  font-size: 200px;
   color: #86aba1;
   display: block;
   padding-right: 100px;
@@ -60,7 +66,12 @@ li{
   padding-top: 10px;
 }
 .date {
-  text-align: right;
+  text-align: left;
   font-size: 20px;
-  padding-top: 20px;
+  padding-top: 10px;
+}
+.description {
+  text-align: right;
+  padding-right: 170px;
+  padding-top:30px;
 }
