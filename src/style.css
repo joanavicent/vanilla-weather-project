@@ -7,6 +7,9 @@ body {
 h1 {
   color: #86aba1;
 }
+h2{
+  margin:0;
+}
 p {
   font-size: smaller;
   margin: 0;
@@ -15,11 +18,12 @@ p {
 form {
   text-align: center;
 }
-ul {
+ul, li {
   padding-left: unset;
-}
-li{
   list-style: none;
+  font-family: "Nanum Gothic", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
 }
 a {
   text-decoration: none;
@@ -75,3 +79,4 @@ a {
   padding-right: 170px;
   padding-top:30px;
 }
+

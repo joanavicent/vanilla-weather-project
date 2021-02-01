@@ -34,6 +34,13 @@
             <div class="col">
 					<p class= "date" id="date">
           </p>
+        <br />
+          <div class="col d-flex align-items-end">
+				  <ul>
+					  <li>Humidity: <span id="humidity"></span>%</li>
+            <li>Wind speed: <span id="wind"></span> km/h</li>
+          </ul>
+			  </div>
 			  </div>
           </h2>
     		</div>
@@ -44,92 +51,10 @@
 			    </div>
       </div>
 		  <div class="row">
-			  <div class="col d-flex align-items-end">
-				  <ul>
-					  <li>Humidity: <span id="humidity"></span>%</li>
-            <li>Wind speed: <span id="wind"></span> km/h</li>
-          </ul>
-			  </div>	  
 	</div>
     <hr />
-      <p>
-        <div class="row">
-          <div class="col">
-           <div class="card">
-            <i class="fas fa-cloud-rain rain">
-            </i>
-            <div class="card-body">
-              <p class="card-temperature">
-                7℃ <strong>12℃</strong>
-              </p>
-                <hr />
-                <p class="card-day">
-                  Sun 27
-                </p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <i class="fas fa-cloud-rain rain">
-            </i>
-            <div class="card-body">
-              <p class="card-temperature">
-                9℃ <strong>13℃</strong>
-              </p>
-              <hr />
-              <p class="card-day">
-                Mon 28
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <i class="fas fa-cloud-sun clouds">
-            </i>
-            <div class="card-body">
-              <p class="card-temperature">
-                10℃ <strong>14℃</strong>
-              </p>
-              <hr />
-              <p class="card-day">
-                Tue 29
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <i class="fas fa-cloud-sun clouds">
-            </i>
-            <div class="card-body">
-              <p class="card-temperature">
-                8℃ <strong>12℃</strong>
-              </p>
-              <hr />
-                <p class="card-day">
-                  Wed 30
-                </p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <i class="fas fa-cloud-sun-rain csr">
-            </i>
-            <div class="card-body">
-              <p class="card-temperature">
-                12℃ <strong>16℃</strong>
-              </p>
-              <hr />
-              <p class="card-day">
-                Thu 31
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <p> 
+        <div class="row" id="forecast"></div>
     </p>
     <hr />
     <form id="city-search-form">
