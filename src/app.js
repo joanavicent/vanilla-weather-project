@@ -1,3 +1,4 @@
+//DATE
 function formatDate(timestamp) {
   let date= new Date(timestamp);
   let dayIndex = date.getDay();
@@ -14,6 +15,7 @@ function formatDate(timestamp) {
   return `${day}, ${formatHours(timestamp)}`;
 }
 
+//TIME
 function formatHours(timestamp){
   let date= new Date(timestamp);
   let hours = date.getHours();
@@ -26,12 +28,15 @@ function formatHours(timestamp){
   }
 return `${hours}:${minutes}`;
 }
+
+//CITY & TEMPERATURE
 function displayWeather(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
 
+//WIND, HUMIDITY & DESCRIPTION
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
@@ -42,6 +47,7 @@ function displayWeather(response) {
   celsiusTemperature=response.data.main.temp;
 }
 
+//FORECAST
 function displayForecast(response){
   let forecastElement=document.querySelector("#forecast");
   forecastElement.innerHTML=null;
@@ -72,6 +78,7 @@ function displayForecast(response){
   }
 }
 
+//SEARCH CITY & DISPLAY WEATHER & FORECAST
 function searchCity(city) {
   let apiKey = "88bb6b7ed04faa186d338b9c9e0be6e6";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -81,6 +88,7 @@ function searchCity(city) {
 axios.get(apiUrl).then(displayForecast);
 }
 
+//CONVERT FAHRENHEIT
 function convertToFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
@@ -90,6 +98,7 @@ function convertToFahrenheit(event) {
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
+//CONVERT CELSIUS
 function convertToCelsius(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
@@ -98,7 +107,32 @@ function convertToCelsius(event) {
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
+//SEARCH CITY
+function search(event) {
+  event.preventDefault();
+  let cityElement = document.querySelector("#city");
+  let cityInput = document.querySelector("#city-input");
+  cityElement.innerHTML = cityInput.value;
+  searchCity(cityInput.value);
+}
 
+//GEOLOCATION
+function showPosition(position){
+  let latitude= position.coords.latitude;
+  let longitude= position.coords.longitude;
+  let unit="metric";
+  let apiKey = "88bb6b7ed04faa186d338b9c9e0be6e6";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayWeather);
+}
+
+//CURRENT POSITION
+function handleCurrentLocation(event){
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(showPosition);
+}
+
+//GLOBAL VARIABLES
 let dateElement = document.querySelector("#date");
 let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
@@ -111,15 +145,10 @@ celsiusLink.addEventListener("click", convertToCelsius);
 
 let celsiusTemperature=null;
 
-function search(event) {
-  event.preventDefault();
-  let cityElement = document.querySelector("#city");
-  let cityInput = document.querySelector("#city-input");
-  cityElement.innerHTML = cityInput.value;
-  searchCity(cityInput.value);
-}
-
 let citySearchForm = document.querySelector("#city-search-form");
 citySearchForm.addEventListener("submit", search);
 
-search("Lisbon");
+let currentLocation=document.querySelector("#current-location-button");
+currentLocation.addEventListener("click", handleCurrentLocation);
+
+searchCity("Lisbon");

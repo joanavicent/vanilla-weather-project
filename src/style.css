@@ -28,6 +28,11 @@ ul, li {
 a {
   text-decoration: none;
 }
+button{
+  background: transparent;
+  padding: 6px 12px;
+  border:#E4DCE5;
+}
 .card-day {
   text-align: center;
   font-weight: bolder;
