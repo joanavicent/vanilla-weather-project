@@ -38,6 +38,8 @@ function displayWeather(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+  
+  celsiusTemperature=response.data.main.temp;
 }
 
 function displayForecast(response){
@@ -82,13 +84,18 @@ axios.get(apiUrl).then(displayForecast);
 function convertToFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 66;
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature=(celsiusTemperature*9)/5+32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 19;
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
 
@@ -102,6 +109,8 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
 
+let celsiusTemperature=null;
+
 function search(event) {
   event.preventDefault();
   let cityElement = document.querySelector("#city");
@@ -112,3 +121,5 @@ function search(event) {
 
 let citySearchForm = document.querySelector("#city-search-form");
 citySearchForm.addEventListener("submit", search);
+
+search("Lisbon");
