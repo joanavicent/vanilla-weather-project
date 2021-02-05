@@ -58,14 +58,11 @@ function displayForecast(response){
   forecastElement.innerHTML += `
   <div class="col">
            <div class="card">
-            <i class="fas fa-cloud-rain rain">
-            </i>
+            ${getWeatherIcon(forecast.weather[0].icon)}
             <div class="card-body">
-              <p class="card-temperature">
-              <strong>
-              ${Math.round(forecast.main.temp_max)}°
+            <p class="card-temperature">
+              ${Math.round(forecast.main.temp)}°
               </strong>
-              ${Math.round(forecast.main.temp_min)}°
               </p>
                 <hr />
                 <p class="card-day">
@@ -75,6 +72,15 @@ function displayForecast(response){
           </div>
         </div> 
   `;
+  }
+}
+function getWeatherIcon(icon){
+  if(icon==="01d"||icon==="01n"){
+    return `<i class="fas fa-cloud-rain rain"></i>`;
+  }else if(icon==="02d"||icon==="02n"){
+    return `<i class="fas fa-cloud-rain rain"></i>`;
+  }else{
+    return "";
   }
 }
 
@@ -124,7 +130,10 @@ function showPosition(position){
   let apiKey = "88bb6b7ed04faa186d338b9c9e0be6e6";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeather);
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
+
 
 //CURRENT POSITION
 function handleCurrentLocation(event){
