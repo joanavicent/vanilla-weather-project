@@ -44,6 +44,7 @@ function displayWeather(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+    let iconElement=document.querySelector("#weather-icon");
     iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -71,7 +72,7 @@ function displayForecast(response){
       />
             <div class="card-body">
             <p class="card-temperature">
-              ${Math.round(forecast.main.temp)}°
+              ${Math.round(forecast.main.temp)}°C
               </strong>
               </p>
                 <hr />
@@ -142,6 +143,7 @@ function handleCurrentLocation(event){
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
+
 
 //GLOBAL VARIABLES
 let dateElement = document.querySelector("#date");
