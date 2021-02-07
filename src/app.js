@@ -2,6 +2,7 @@
 function formatDate(timestamp) {
   let date= new Date(timestamp);
   let dayIndex = date.getDay();
+
   let days = [
     "Sunday",
     "Monday",
@@ -43,6 +44,11 @@ function displayWeather(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+    iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
   
   celsiusTemperature=response.data.main.temp;
 }
@@ -58,7 +64,11 @@ function displayForecast(response){
   forecastElement.innerHTML += `
   <div class="col">
            <div class="card">
-            ${getWeatherIcon(forecast.weather[0].icon)}
+            <img
+        src="http://openweathermap.org/img/wn/${
+          forecast.weather[0].icon
+        }@2x.png"
+      />
             <div class="card-body">
             <p class="card-temperature">
               ${Math.round(forecast.main.temp)}°
@@ -74,15 +84,7 @@ function displayForecast(response){
   `;
   }
 }
-function getWeatherIcon(icon){
-  if(icon==="01d"||icon==="01n"){
-    return `<i class="fas fa-cloud-rain rain"></i>`;
-  }else if(icon==="02d"||icon==="02n"){
-    return `<i class="fas fa-cloud-rain rain"></i>`;
-  }else{
-    return "";
-  }
-}
+
 
 //SEARCH CITY & DISPLAY WEATHER & FORECAST
 function searchCity(city) {
