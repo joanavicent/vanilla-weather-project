@@ -69,7 +69,7 @@ button{
   text-align: right;
   font-weight:600px;
   font-size: 20px;
-  padding-right: 170px;
+  padding-right: 245px;
   padding-top:10px;
 }
 .units .active{
@@ -81,7 +81,7 @@ text-decoration:none;
 }
 .float{
   display: block;
-  margin-left:150px;
+  margin-left:250px;
   margin-bottom:0;
   height: 150px;
   width: 150px;
